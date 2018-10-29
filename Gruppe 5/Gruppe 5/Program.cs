@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,38 @@ namespace Gruppe_5 {
             
             while(isRunning == true) {
 
+                string movingGround = "___________________________________________________________________________";
 
+
+                for (int i = 0; i < movingGround.Length; i += 1)
+                {
+                    char[] movingGroundArray = movingGround.ToCharArray();
+                    movingGroundArray[i] = '1';
+                    if(i > 0) { movingGroundArray[i - 1] = '_'; }
+                    movingGround = new string(movingGroundArray);
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|");
+                    Console.WriteLine(movingGround);
+                    Thread.Sleep(50);
+                    Console.Clear();
+                }
+                movingGround = "___________________________________________________________________________";
 
 
             }
 
+
         }
+
+
         
     }
 }
