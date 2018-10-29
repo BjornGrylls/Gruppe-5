@@ -24,7 +24,7 @@ namespace Gruppe_5 {
                         if (i > 0) { movingGroundArray[i - 1] = '_'; }
                         movingGround = new string(movingGroundArray);
                         Console.WriteLine("|");
-                        Console.WriteLine("|");
+                        Console.WriteLine("|"); 
                         Console.WriteLine("|");
                         Console.WriteLine("|");
                         Console.WriteLine("|");
