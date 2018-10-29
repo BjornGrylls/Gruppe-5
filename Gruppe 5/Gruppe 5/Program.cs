@@ -18,21 +18,14 @@ namespace Gruppe_5 {
                     string movingGround = "___________________________________________________________________________";
 
 
-                    for (int i = 0; i < movingGround.Length; i += 1) {
+                    for (int i = movingGround.Length-1; i >= 0; i -= 1) {
                         char[] movingGroundArray = movingGround.ToCharArray();
                         movingGroundArray[i] = '1';
-                        if (i > 0) { movingGroundArray[i - 1] = '_'; }
+                        if (i < movingGround.Length-1) { movingGroundArray[i + 1] = '_'; }
                         movingGround = new string(movingGroundArray);
-                        Console.WriteLine("|");
-                        Console.WriteLine("|"); 
-                        Console.WriteLine("|");
-                        Console.WriteLine("|");
-                        Console.WriteLine("|");
-                        Console.WriteLine("|");
-                        Console.WriteLine("|");
-                        Console.WriteLine("|");
-                        Console.WriteLine("|");
-                        Console.WriteLine("|");
+                        for (int j = 0; j < 11; j+=1) { // Move ground down
+                            Console.WriteLine("|");
+                        }
                         Console.WriteLine(movingGround);
                         Thread.Sleep(50);
                         Console.Clear();
