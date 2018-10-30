@@ -12,49 +12,74 @@ namespace Gruppe_5 {
             // Initialize things
             Program MyFunctions = new Program();
             int heightOfPLayArea = 17;
+            bool isRunning = true;
+            int gameSpeed = 50;
+            int counter = 0;
             
+            while (isRunning == true) { // isRunning
+                string movingGround = "______________________________________________________________________________________________________";
+                for (int i = movingGround.Length-1; i >= 0; i -= 1) {
+                    char[] movingGroundArray = movingGround.ToCharArray();
+                    movingGroundArray[i] = '1';
+                    if (i < movingGround.Length-1) { movingGroundArray[i + 1] = '_'; }
+                    movingGround = new string(movingGroundArray);
 
+                    for (int j = 0; j < heightOfPLayArea; j += 1) { Console.WriteLine(" "); } // Move ground down
+                    Console.WriteLine(movingGround); // Print ground
 
-
-            Console.WriteLine("Press ESC to stop");
-            do {
-                while (!Console.KeyAvailable) { // isRunning
-
-
-
-                    string movingGround = "______________________________________________________________________________________________________";
-
-
-                    for (int i = movingGround.Length-1; i >= 0; i -= 1) {
-                        char[] movingGroundArray = movingGround.ToCharArray();
-                        movingGroundArray[i] = '1';
-                        if (i < movingGround.Length-1) { movingGroundArray[i + 1] = '_'; }
-                        movingGround = new string(movingGroundArray);
-
-                        for (int j = 0; j < heightOfPLayArea; j+=1) { // Move ground down
-                            Console.WriteLine(" ");
+                    { // Click the - at the left of this line if you are done editing
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W)) { // While spacebar is pressed/held down. Rest of program runs while this runs
+                            Console.WriteLine("WWWWW");
                         }
-                        Console.WriteLine(movingGround);
 
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar)) {
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar)) { // While spacebar is pressed/held down. Rest of program runs while this runs
                             Console.WriteLine("Jumping");
                         }
 
-                        Thread.Sleep(50);
-                        Console.Clear();
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)) { // 
+                            goto end;
+                        }
+                    } // Buttons. Expand by clicking the + at the left of this line. Remember to close after edit.
+                    
+
+                    Thread.Sleep(gameSpeed);
+                    Console.Clear();
+
+                    // Speeds the game up after a while
+                    if (counter >= 10) {
+                        if (gameSpeed > 10) {
+                            gameSpeed -= 1;
+                            counter = 0;
+                        }
                     }
-                    movingGround = "______________________________________________________________________________________________________";
+                    counter += 1;
 
 
                 }
-            } while (Console.ReadKey(true).Key != ConsoleKey.Escape); // until esc is pressed. Only works when the 1 is not on the line
+                movingGround = "______________________________________________________________________________________________________";
+
+            }
+
+            end:;
+            Console.Clear();
+            Console.WriteLine("Du vandt");
+
         }
 
-        public void JumpTester() {
-            do {
-                Console.WriteLine("Jumping");
-            } while (Console.ReadKey(true).Key == ConsoleKey.Spacebar);
+        public void FunktionerSkrivesHer() {
+            //Kaldes med Myfuntions.NavnetPÂFunktionen i Main"
         }
-        
+
+
+        public void PrintDino() {
+            Console.WriteLine(  "            Oo\n" +
+                                "           O\n" +
+                                "          Oooo\n" +
+                                "         O\n" +
+                                "       O  O\n" +
+                                "      OO  o\n" +
+                                "     o    oo");
+        }
+
     }
 }
