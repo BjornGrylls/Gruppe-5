@@ -5,9 +5,12 @@ using System.Text;
 using System.Threading;
 
 
-namespace Gruppe_5 {
-    class Program {
-        static void Main(string[] args) {
+namespace Gruppe_5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
 
             // Initialize things
             Program MyFunctions = new Program();
@@ -17,10 +20,21 @@ namespace Gruppe_5 {
             int counter = 0;
             bool cactusOnGround = false;
 
-            while (isRunning == true) { // isRunning
+            while (isRunning == true)
+            { // isRunning
                 cactusOnGround = false;
                 string movingGround = "________________________________________________________________________________________________________________________";
-                for (int i = movingGround.Length-1; i >= 0; i -= 1) {
+
+                // Make random number from 0-10, if number is < 5, spawn cactus on current run-through
+                Random rndNum = new Random();
+                int nextRndNum = rndNum.Next(0, 10);
+                if(nextRndNum < 5)
+                {
+                    cactusOnGround = true;
+                }
+
+                for (int i = movingGround.Length - 1; i >= 0; i -= 1)
+                {
 
                     //Spawns a cactus ('1') for current run-through of movingGround
                     if (cactusOnGround)
@@ -43,31 +57,32 @@ namespace Gruppe_5 {
                     Console.WriteLine(movingGround); // Print ground
 
                     { // Click the - at the left of this line if you are done editing
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.C))
-                        { // Spawns a cactus ('1') for current run through of movingGround
-                            cactusOnGround = true;
-                        }
-
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W)) {
+                        
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W))
+                        {
                             Console.Write("W");
                         }
 
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar)) { // While spacebar is pressed/held down. Rest of program runs while this runs
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar))
+                        { // While spacebar is pressed/held down. Rest of program runs while this runs
                             Console.WriteLine("Jumping");
                         }
 
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)) {
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape))
+                        {
                             goto end;
                         }
                     } // Buttons. Expand by clicking the + at the left of this line. Remember to close after edit.
-                    
+
 
                     Thread.Sleep(gameSpeed);
                     Console.Clear();
 
                     // Speeds the game up after a while
-                    if (counter >= 10) {
-                        if (gameSpeed > 10) {
+                    if (counter >= 10)
+                    {
+                        if (gameSpeed > 10)
+                        {
                             gameSpeed -= 1;
                             counter = 0;
                         }
@@ -86,13 +101,12 @@ namespace Gruppe_5 {
 
         }
 
-        public void FunktionerSkrivesHer() {
+        public void FunktionerSkrivesHer()
+        {
             //Kaldes med Myfuntions.NavnetP�Funktionen i Main"
         }
 
-        
-        
+
+
     }
 }
-
-        
