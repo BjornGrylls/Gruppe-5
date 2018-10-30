@@ -32,6 +32,14 @@ namespace Gruppe_5 {
                     }
 
                     for (int j = 0; j < heightOfPLayArea; j += 1) { Console.WriteLine(" "); } // Move ground down
+                    string dino = "                    __\n" +
+                            "                   / _)\n" +
+                            "         _.----._ / /\n" +
+                            "        /        _ /\n" +
+                            "    _ _/ (  | (  |\n" +
+                            "  / __.- '|_|--|_|";
+
+                    Console.WriteLine(dino);
                     Console.WriteLine(movingGround); // Print ground
 
                     { // Click the - at the left of this line if you are done editing
@@ -82,26 +90,7 @@ namespace Gruppe_5 {
             //Kaldes med Myfuntions.NavnetP�Funktionen i Main"
         }
 
-
-        public void PrintDino() {
-            Console.WriteLine(  "            Oo\n" +
-                                "           O\n" +
-                                "          Oooo\n" +
-                                "         O\n" +
-                                "       O  O\n" +
-                                "      OO  o\n" +
-                                "     o    oo");
-        }
-        public void printDino()
-        {
-            Console.WriteLine("            Oo\n" +
-                    "           O\n" +
-                    "          Oooo\n" +
-                    "         O\n" +
-                    "       O  O\n" +
-                    "      OO  o\n" +
-                    "     o    oo");
-        }
+        
         
     }
 }
