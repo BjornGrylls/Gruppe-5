@@ -15,19 +15,31 @@ namespace Gruppe_5 {
             bool isRunning = true;
             int gameSpeed = 50;
             int counter = 0;
-            
+            bool cactusOnGround = false;
+
             while (isRunning == true) { // isRunning
+                cactusOnGround = false;
                 string movingGround = "______________________________________________________________________________________________________";
                 for (int i = movingGround.Length-1; i >= 0; i -= 1) {
-                    char[] movingGroundArray = movingGround.ToCharArray();
-                    movingGroundArray[i] = '1';
-                    if (i < movingGround.Length-1) { movingGroundArray[i + 1] = '_'; }
-                    movingGround = new string(movingGroundArray);
+
+                    //Spawns a cactus ('1') for current run-through of movingGround
+                    if (cactusOnGround)
+                    {
+                        char[] movingGroundArray = movingGround.ToCharArray();
+                        movingGroundArray[i] = '1';
+                        if (i < movingGround.Length - 1) { movingGroundArray[i + 1] = '_'; }
+                        movingGround = new string(movingGroundArray);
+                    }
 
                     for (int j = 0; j < heightOfPLayArea; j += 1) { Console.WriteLine(" "); } // Move ground down
                     Console.WriteLine(movingGround); // Print ground
 
                     { // Click the - at the left of this line if you are done editing
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.C))
+                        { // Spawns a cactus ('1') for current run through of movingGround
+                            cactusOnGround = true;
+                        }
+
                         while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W)) { // While spacebar is pressed/held down. Rest of program runs while this runs
                             Console.WriteLine("WWWWW");
                         }
@@ -67,7 +79,7 @@ namespace Gruppe_5 {
         }
 
         public void FunktionerSkrivesHer() {
-            //Kaldes med Myfuntions.NavnetPåFunktionen i Main"
+            //Kaldes med Myfuntions.NavnetPï¿½Funktionen i Main"
         }
 
 
