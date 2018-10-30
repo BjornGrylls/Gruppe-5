@@ -14,11 +14,20 @@ namespace Gruppe_5
 
             // Initialize things
             Program MyFunctions = new Program();
-            int heightOfPLayArea = 17;
+            int loft2dino = 17;
+            int dino2ground = 0;
+            int dinoCounter = 0;
             bool isRunning = true;
             int gameSpeed = 50;
-            int counter = 0;
+            int gameSpeedCounter = 0;
             bool cactusOnGround = false;
+            string dino = "                    __\n" +
+                          "                   / _)\n" +
+                          "         _.----._ / /\n" +
+                          "        /        _ /\n" +
+                          "    _ _/ (  | (  |\n" +
+                          "  / __.- '|_|--|_|";
+
 
             while (isRunning == true)
             { // isRunning
@@ -45,15 +54,10 @@ namespace Gruppe_5
                         movingGround = new string(movingGroundArray);
                     }
 
-                    for (int j = 0; j < heightOfPLayArea; j += 1) { Console.WriteLine(" "); } // Move ground down
-                    string dino = "                    __\n" +
-                            "                   / _)\n" +
-                            "         _.----._ / /\n" +
-                            "        /        _ /\n" +
-                            "    _ _/ (  | (  |\n" +
-                            "  / __.- '|_|--|_|";
+                    for (int j = 0; j < loft2dino; j += 1) { Console.WriteLine(" "); } // Move ground down
 
                     Console.WriteLine(dino);
+                    for (int j = 0; j < dino2ground; j += 1) { Console.WriteLine(" "); } // Move ground down
                     Console.WriteLine(movingGround); // Print ground
 
                     { // Click the - at the left of this line if you are done editing
@@ -65,7 +69,11 @@ namespace Gruppe_5
 
                         while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar))
                         { // While spacebar is pressed/held down. Rest of program runs while this runs
-                            Console.WriteLine("Jumping");
+                            if (dinoCounter >= 10) {
+                                dino2ground += 1;
+                                loft2dino -= 1;
+                            }
+                            dinoCounter += 1;
                         }
 
                         while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape))
@@ -79,15 +87,15 @@ namespace Gruppe_5
                     Console.Clear();
 
                     // Speeds the game up after a while
-                    if (counter >= 10)
+                    if (gameSpeedCounter >= 10)
                     {
                         if (gameSpeed > 10)
                         {
                             gameSpeed -= 1;
-                            counter = 0;
+                            gameSpeedCounter = 0;
                         }
                     }
-                    counter += 1;
+                    gameSpeedCounter += 1;
 
 
                 }
