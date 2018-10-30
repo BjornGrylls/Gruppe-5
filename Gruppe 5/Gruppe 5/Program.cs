@@ -5,12 +5,9 @@ using System.Text;
 using System.Threading;
 
 
-namespace Gruppe_5
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+namespace Gruppe_5 {
+    class Program {
+        static void Main(string[] args) {
 
             // Initialize things
             Program MyFunctions = new Program();
@@ -21,39 +18,41 @@ namespace Gruppe_5
             int gameSpeed = 50;
             int gameSpeedCounter = 0;
             bool cactusOnGround = false;
+            DateTime timeStarted = DateTime.Now;
+
             string dino = "                    __\n" +
                           "                   / _)\n" +
                           "         _.----._ / /\n" +
                           "        /        _ /\n" +
                           "    _ _/ (  | (  |\n" +
                           "  / __.- '|_|--|_|";
+            bool dinoTop = false;
 
-
-            while (isRunning == true)
-            { // isRunning
+            while (isRunning == true) { // isRunning
                 cactusOnGround = false;
                 string movingGround = "________________________________________________________________________________________________________________________";
 
                 // Make random number from 0-10, if number is < 5, spawn cactus on current run-through
                 Random rndNum = new Random();
                 int nextRndNum = rndNum.Next(0, 10);
-                if(nextRndNum < 5)
-                {
+                if (nextRndNum < 5) {
                     cactusOnGround = true;
                 }
 
-                for (int i = movingGround.Length - 1; i >= 0; i -= 1)
-                {
+                for (int i = movingGround.Length - 1; i >= 0; i -= 1) {
 
                     //Spawns a cactus ('1') for current run-through of movingGround
-                    if (cactusOnGround)
-                    {
+                    if (cactusOnGround) {
                         char[] movingGroundArray = movingGround.ToCharArray();
                         movingGroundArray[i] = '1';
                         if (i < movingGround.Length - 1) { movingGroundArray[i + 1] = '_'; }
                         movingGround = new string(movingGroundArray);
                     }
 
+                    DateTime timeSinceStarted = DateTime.Now;
+                    double totalminutes = (timeSinceStarted - timeStarted).TotalSeconds;
+                    string timeRunning = "Seconds running: " + totalminutes;
+                    Console.WriteLine(timeRunning.PadLeft(120));
                     for (int j = 0; j < loft2dino; j += 1) { Console.WriteLine(" "); } // Move ground down
 
                     Console.WriteLine(dino);
@@ -61,23 +60,36 @@ namespace Gruppe_5
                     Console.WriteLine(movingGround); // Print ground
 
                     { // Click the - at the left of this line if you are done editing
-                        
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W))
-                        {
+
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W)) {
                             Console.Write("W");
                         }
 
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar))
-                        { // While spacebar is pressed/held down. Rest of program runs while this runs
-                            if (dinoCounter >= 10) {
-                                dino2ground += 1;
-                                loft2dino -= 1;
+                        if (!dinoTop) {
+                            while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar)) { // While spacebar is pressed/held down. Rest of program runs while this runs
+                                if (dinoCounter >= 10) {
+                                    dino2ground += 1;
+                                    loft2dino -= 1;
+                                }
+                            }
+                            dinoCounter += 1;
+
+                        } else {
+                            if (dinoCounter >= 5) {
+                                dino2ground -= 1;
+                                loft2dino += 1;
+                                dinoCounter = 2;
                             }
                             dinoCounter += 1;
                         }
 
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape))
-                        {
+                        if (dino2ground >= 5) {
+                            dinoTop = true;
+                        } else if (dino2ground <= 0) {
+                            dinoTop = false;
+                        }
+
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)) {
                             goto end;
                         }
                     } // Buttons. Expand by clicking the + at the left of this line. Remember to close after edit.
@@ -86,31 +98,29 @@ namespace Gruppe_5
                     Thread.Sleep(gameSpeed);
                     Console.Clear();
 
-                    // Speeds the game up after a while
-                    if (gameSpeedCounter >= 10)
-                    {
-                        if (gameSpeed > 10)
-                        {
+                    // Speeds the game up after a while 
+                    /*
+                    if (gameSpeedCounter >= 10) {
+                        if (gameSpeed > 10) {
                             gameSpeed -= 1;
                             gameSpeedCounter = 0;
                         }
                     }
                     gameSpeedCounter += 1;
-
+                    */
 
                 }
                 movingGround = "________________________________________________________________________________________________________________________";
 
             }
 
-            end:;
+        end:;
             Console.Clear();
             Console.WriteLine("Du vandt");
 
         }
 
-        public void FunktionerSkrivesHer()
-        {
+        public void FunktionerSkrivesHer() {
             //Kaldes med Myfuntions.NavnetP�Funktionen i Main"
         }
 
