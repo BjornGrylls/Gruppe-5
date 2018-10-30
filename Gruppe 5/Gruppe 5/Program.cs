@@ -80,25 +80,6 @@ namespace Gruppe_5 {
                                 "      OO  o\n" +
                                 "     o    oo");
         }
-
-<<<<<<< HEAD
-=======
-        public void JumpTester() {
-            do {
-                Console.WriteLine("Jumping");
-            } while (Console.ReadKey(true).Key == ConsoleKey.Spacebar);
-        }
-        public void printDino()
-        {
-            Console.WriteLine("            Oo\n" +
-                    "           O\n" +
-                    "          Oooo\n" +
-                    "         O\n" +
-                    "       O  O\n" +
-                    "      OO  o\n" +
-                    "     o    oo");
-        }
         
->>>>>>> master
     }
 }
