@@ -16,6 +16,7 @@ namespace Gruppe_5 {
             int gameSpeed = 50;
             int counter = 0;
             bool cactusOnGround = false;
+            string dino;
 
             while (isRunning == true) { // isRunning
                 cactusOnGround = false;
@@ -32,14 +33,17 @@ namespace Gruppe_5 {
                     }
 
                     for (int j = 0; j < heightOfPLayArea; j += 1) { Console.WriteLine(" "); } // Move ground down
-                    string dino = "                    __\n" +
+
+                    // Dinosaur / Player
+                    dino = "                    __\n" +
                             "                   / _)\n" +
                             "         _.----._ / /\n" +
                             "        /        _ /\n" +
                             "    _ _/ (  | (  |\n" +
                             "  / __.- '|_|--|_|";
 
-                    Console.WriteLine(dino);
+                    Console.WriteLine(dino); // Print Dinosaur
+
                     Console.WriteLine(movingGround); // Print ground
 
                     { // Click the - at the left of this line if you are done editing
@@ -80,17 +84,55 @@ namespace Gruppe_5 {
 
             }
 
+
+
             end:;
             Console.Clear();
             Console.WriteLine("Du vandt");
 
         }
 
+
+
         public void FunktionerSkrivesHer() {
             //Kaldes med Myfuntions.NavnetP�Funktionen i Main"
         }
 
-        
+        public void dinoRunning()
+        {
+            // Dinosaur / Player - Running
+            string dinoRun = 
+            "                    __\n" +
+            "                   / _)\n" +
+            "         _.----._ / /\n" +
+            "        /        _ /\n" +
+            "    _ _/ (  | (  |\n" +
+            "  / __.-'/_/-- |_|";
+
+            string dinoRun2 = 
+            "                    __\n" +
+            "                   / _)\n" +
+            "         _.----._ / /\n" +
+            "        /        _ /\n" +
+            "    _ _/ (  | (  |\n" +
+            "  / __.- '|_|--/_/";
+
+            Console.WriteLine(dinoRun); // Print Running Dinosaur
+            Console.WriteLine(dinoRun2); // Print Running Dinosaur
+        }
+
+        public void dinoJumping()
+        {
+            string dinoJump = 
+            "                    __\n" +
+            "                   / _)\n" +
+            "         _.----._ / /\n" +
+            "        /        _ /\n" +
+            "    _ _/ (  | (  |\n" +
+            "  / __.- '|_|--|_|";
+
+            Console.WriteLine(dinoJump);
+        }
         
     }
 }
