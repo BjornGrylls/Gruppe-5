@@ -19,7 +19,7 @@ namespace Gruppe_5 {
 
             while (isRunning == true) { // isRunning
                 cactusOnGround = false;
-                string movingGround = "______________________________________________________________________________________________________";
+                string movingGround = "________________________________________________________________________________________________________________________";
                 for (int i = movingGround.Length-1; i >= 0; i -= 1) {
 
                     //Spawns a cactus ('1') for current run-through of movingGround
@@ -48,15 +48,15 @@ namespace Gruppe_5 {
                             cactusOnGround = true;
                         }
 
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W)) { // While spacebar is pressed/held down. Rest of program runs while this runs
-                            Console.WriteLine("WWWWW");
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W)) {
+                            Console.Write("W");
                         }
 
                         while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar)) { // While spacebar is pressed/held down. Rest of program runs while this runs
                             Console.WriteLine("Jumping");
                         }
 
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)) { // 
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)) {
                             goto end;
                         }
                     } // Buttons. Expand by clicking the + at the left of this line. Remember to close after edit.
@@ -76,7 +76,7 @@ namespace Gruppe_5 {
 
 
                 }
-                movingGround = "______________________________________________________________________________________________________";
+                movingGround = "________________________________________________________________________________________________________________________";
 
             }
 
