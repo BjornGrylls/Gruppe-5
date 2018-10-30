@@ -37,7 +37,16 @@ namespace Gruppe_5 {
                 }
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape); // until esc is pressed. Only works when the 1 is not on the line
         }
-
+        public void printDino()
+        {
+            Console.WriteLine("            Oo\n" +
+                    "           O\n" +
+                    "          Oooo\n" +
+                    "         O\n" +
+                    "       O  O\n" +
+                    "      OO  o\n" +
+                    "     o    oo");
+        }
         
     }
 }
