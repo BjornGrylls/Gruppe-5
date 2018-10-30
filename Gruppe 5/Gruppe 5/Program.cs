@@ -58,13 +58,24 @@ namespace Gruppe_5 {
         public void printDino()
         {
             Console.WriteLine("            Oo\n" +
-                    "           O\n" +
-                    "          Oooo\n" +
-                    "         O\n" +
-                    "       O  O\n" +
-                    "      OO  o\n" +
-                    "     o    oo");
+            "           O\n" +
+            "          Oooo\n" +
+            "         O\n" +
+            "       O  O\n" +
+            "      OO  o\n" +
+            "     o    oo");
         }
-        
+
+        public void printDinoRunning()
+        {
+            Console.WriteLine("            Oo\n" +
+            "           O\n" +
+            "          Oooo\n" +
+            "         O\n" +
+            "       O  O\n" +
+            "      o  OO\n" +
+            "     oo    o");
+        }
+
     }
 }
