@@ -5,3 +5,10 @@ C:\Users\admin.DESKTOP-J123LG6\OneDrive - mercantec\GitKraken\Gruppe-5\Gruppe 5\
 C:\Users\admin.DESKTOP-J123LG6\OneDrive - mercantec\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\bin\Debug\Gruppe 5.pdb
 C:\Users\admin.DESKTOP-J123LG6\OneDrive - mercantec\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.exe
 C:\Users\admin.DESKTOP-J123LG6\OneDrive - mercantec\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.pdb
+C:\Users\admin.DESKTOP-J123LG6\Documents\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\bin\Debug\Gruppe 5.exe.config
+C:\Users\admin.DESKTOP-J123LG6\Documents\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\bin\Debug\Gruppe 5.exe
+C:\Users\admin.DESKTOP-J123LG6\Documents\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\bin\Debug\Gruppe 5.pdb
+C:\Users\admin.DESKTOP-J123LG6\Documents\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.csprojAssemblyReference.cache
+C:\Users\admin.DESKTOP-J123LG6\Documents\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.csproj.CoreCompileInputs.cache
+C:\Users\admin.DESKTOP-J123LG6\Documents\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.exe
+C:\Users\admin.DESKTOP-J123LG6\Documents\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.pdb

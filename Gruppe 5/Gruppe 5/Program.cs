@@ -15,7 +15,7 @@ namespace Gruppe_5 {
 
 
 
-                    string movingGround = "___________________________________________________________________________";
+                    string movingGround = "______________________________________________________________________________________________________";
 
 
                     for (int i = movingGround.Length-1; i >= 0; i -= 1) {
@@ -23,15 +23,15 @@ namespace Gruppe_5 {
                         movingGroundArray[i] = '1';
                         if (i < movingGround.Length-1) { movingGroundArray[i + 1] = '_'; }
                         movingGround = new string(movingGroundArray);
-                        for (int j = 0; j < 11; j+=1) { // Move ground down
-                            Console.WriteLine("|");
+                        for (int j = 0; j < 17; j+=1) { // Move ground down
+                            Console.WriteLine(" ");
                         }
                         Console.WriteLine(movingGround);
                         Thread.Sleep(50);
                         Console.Clear();
                         
                     }
-                    movingGround = "___________________________________________________________________________";
+                    movingGround = "______________________________________________________________________________________________________";
 
 
                 }
