@@ -13,7 +13,7 @@ namespace Gruppe_5 {
 
             bool isRunning = true;
 
-            int gameSpeed = 50;
+            int gameSpeed = 35;
             int gameSpeedCounter = 0;
 
             // Cactus and things
@@ -31,7 +31,6 @@ namespace Gruppe_5 {
 
 
             // Initialize animation of dino
-
             int dinoRunCounter = 0;
 
 
@@ -153,7 +152,7 @@ namespace Gruppe_5 {
             "         _.----._ / /\n" +
             "        /        _ /\n" +
             "    _ _/ (  | (  |\n" +
-            "  / __.-'/_/-- |_|";
+            "  / __.-'/_/---|_|";
 
             string dinoRun2 =
             "                    __\n" +
@@ -161,7 +160,7 @@ namespace Gruppe_5 {
             "         _.----._ / /\n" +
             "        /        _ /\n" +
             "    _ _/ (  | (  |\n" +
-            "  / __.- '|_|--/_/";
+            "  / __.-''|_|-/_/";
 
             if (dinoRunCounter >= 5) {
                 Console.WriteLine(dinoRun1);
@@ -180,11 +179,4 @@ namespace Gruppe_5 {
 
     }
 }
-                                            /* "  ___ \n" +
-                                              "   | |\n" +
-                                              "   | | \n" +
-                                              "|| | | ||\n" +
-                                              "||_| |_||\n" +
-                                              "   | |\n" +
-                                              "   | |\n"; */
 
