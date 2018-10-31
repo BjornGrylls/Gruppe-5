@@ -4,61 +4,134 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
+namespace Gruppe_5 {
+    class Program {
+        static void Main(string[] args) {
 
-namespace Gruppe_5
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-           
-            
-            Console.WriteLine("Press ESC to stop");
-            do {
-                while (!Console.KeyAvailable) { // isRunning
+            // Initialize things
+            Program MyFunctions = new Program();
+            int loft2dino = 17;
+            int dino2ground = 0;
+            int dinoCounter = 0;
+            bool isRunning = true;
+            int gameSpeed = 50;
+            int gameSpeedCounter = 0;
+            bool cactusOnGround = false;
+            DateTime timeStarted = DateTime.Now;
 
-                   
-                    
-                    string movingGround = "______________________________________________________________________________________________________";
+            string dino = "                    __\n" +
+                          "                   / _)\n" +
+                          "         _.----._ / /\n" +
+                          "        /        _ /\n" +
+                          "    _ _/ (  | (  |\n" +
+                          "  / __.- '|_|--|_|";
+            bool dinoTop = false;
 
-                    for (int i = movingGround.Length-1; i >= 0; i -= 1) {
-                        string[] movingGroundArray = movingGround.ToStringArray();
-                        movingGroundArray[i] = "  ___ \n" +
-                                               "   | |\n" +
-                                               "   | | \n" +
-                                               "|| | | ||\n" +
-                                               "||_| |_||\n" +
-                                               "   | |\n" +
-                                               "   | |\n";
-                        if (i < movingGround.Length-1) { movingGroundArray[i + 1] = "_"; }
+            while (isRunning == true) { // isRunning
+                cactusOnGround = false;
+                string movingGround = "________________________________________________________________________________________________________________________";
 
-                        for (int j = 0; j < 17; j+=1) { // Move ground down
-                            Console.WriteLine(" ");
-                        }
-                        Console.WriteLine(movingGround);
-                        Thread.Sleep(50);
-                        Console.Clear();
-                        
+                // Make random number from 0-10, if number is < 5, spawn cactus on current run-through
+                Random rndNum = new Random();
+                int nextRndNum = rndNum.Next(0, 10);
+                if (nextRndNum < 5) {
+                    cactusOnGround = true;
+                }
+
+                for (int i = movingGround.Length - 1; i >= 0; i -= 1) {
+
+                    //Spawns a cactus ('1') for current run-through of movingGround
+                    if (cactusOnGround) {
+                        char[] movingGroundArray = movingGround.ToCharArray();
+                        movingGroundArray[i] = '1';
+                        if (i < movingGround.Length - 1) { movingGroundArray[i + 7] = '_'; }
+                        movingGround = new string(movingGroundArray);
                     }
-                    movingGround = "______________________________________________________________________________________________________";
 
+                    DateTime timeSinceStarted = DateTime.Now;
+                    double totalminutes = (timeSinceStarted - timeStarted).TotalSeconds;
+                    string timeRunning = "Seconds running: " + totalminutes;
+                    Console.WriteLine(timeRunning.PadLeft(120));
+                    for (int j = 0; j < loft2dino; j += 1) { Console.WriteLine(" "); } // Move ground down
+
+                    Console.WriteLine(dino);
+                    for (int j = 0; j < dino2ground; j += 1) { Console.WriteLine(" "); } // Move ground down
+                    Console.WriteLine(movingGround); // Print ground
+
+                    { // Click the - at the left of this line if you are done editing
+
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W)) {
+                            Console.Write("W");
+                        }
+
+                        if (!dinoTop) {
+                            while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar)) { // While spacebar is pressed/held down. Rest of program runs while this runs
+                                if (dinoCounter >= 10) {
+                                    dino2ground += 1;
+                                    loft2dino -= 1;
+                                }
+                            }
+                            dinoCounter += 1;
+
+                        } else {
+                            if (dinoCounter >= 5) {
+                                dino2ground -= 1;
+                                loft2dino += 1;
+                                dinoCounter = 2;
+                            }
+                            dinoCounter += 1;
+                        }
+
+                        if (dino2ground >= 5) {
+                            dinoTop = true;
+                        } else if (dino2ground <= 0) {
+                            dinoTop = false;
+                        }
+
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)) {
+                            goto end;
+                        }
+                    } // Buttons. Expand by clicking the + at the left of this line. Remember to close after edit.
+
+
+                    Thread.Sleep(gameSpeed);
+                    Console.Clear();
+
+                    // Speeds the game up after a while 
+                    /*
+                    if (gameSpeedCounter >= 10) {
+                        if (gameSpeed > 10) {
+                            gameSpeed -= 1;
+                            gameSpeedCounter = 0;
+                        }
+                    }
+                    gameSpeedCounter += 1;
+                    */
 
                 }
-            } while (Console.ReadKey(true).Key != ConsoleKey.Escape); // until esc is pressed. Only works when the 1 is not on the line
+                movingGround = "________________________________________________________________________________________________________________________";
+
+            }
+
+        end:;
+            Console.Clear();
+            Console.WriteLine("Du vandt");
+
         }
-        
-        public void PrintCactus() //the cactus
-        {
-           Console.WriteLine("   ___ \n" +
-                "   | |\n" +
-                "  | | \n" +
-                "|| | | ||\n" +
-                "||_| |_||\n" +
-                "   | |\n" +
-                "   | |\n");
+
+        public void FunktionerSkrivesHer() {
+            //Kaldes med Myfuntions.NavnetP�Funktionen i Main"
         }
-       
-        
+
+
+
     }
 }
+                                            /* "  ___ \n" +
+                                              "   | |\n" +
+                                              "   | | \n" +
+                                              "|| | | ||\n" +
+                                              "||_| |_||\n" +
+                                              "   | |\n" +
+                                              "   | |\n"; */
 
