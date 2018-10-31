@@ -11,46 +11,50 @@ namespace Gruppe_5 {
 
             // Initialize things
             Program MyFunctions = new Program();
+
+            bool isRunning = true;
+
+            int gameSpeed = 50;
+            int gameSpeedCounter = 0;
+
+            // Cactus and things
+            bool cactusOnGround = false;
+            Random rndNum = new Random();
+            string movingGround = "________________________________________________________________________________________________________________________";
+            string cactus = 
+            "   ___ \n" +
+            "   | |\n" +
+            "   | | \n" +
+            "|| | | ||\n" +
+            "||_| |_||\n" +
+            "   | |\n" +
+            "   | |\n"; 
+
+
+            // Initialize animation of dino
+
+            int dinoRunCounter = 0;
+
+
+            // Initialize jumping things
+            bool dinoTop = false;
             int loft2dino = 17;
             int dino2ground = 0;
             int dinoCounter = 0;
-            bool isRunning = true;
-            int gameSpeed = 50;
-            int gameSpeedCounter = 0;
-            bool cactusOnGround = false;
+
+            // Initialize score and time things
             DateTime timeStarted = DateTime.Now;
-
-            string dinoRun1 =
-            "                    __\n" +
-            "                   / _)\n" +
-            "         _.----._ / /\n" +
-            "        /        _ /\n" +
-            "    _ _/ (  | (  |\n" +
-            "  / __.-'/_/-- |_|";
-
-            string dinoRun2 =
-            "                    __\n" +
-            "                   / _)\n" +
-            "         _.----._ / /\n" +
-            "        /        _ /\n" +
-            "    _ _/ (  | (  |\n" +
-            "  / __.- '|_|--/_/";
-            int dinoRunCounter = 0;
-
-            string movingGround = "________________________________________________________________________________________________________________________";
-            bool dinoTop = false;
             DateTime timeSinceStarted = DateTime.Now;
             double totalSeconds = (timeSinceStarted - timeStarted).TotalSeconds;
             string timeRunning = "Seconds running: " + totalSeconds;
+
 
             while (isRunning == true) { // While running == true
                 cactusOnGround = false;
                 movingGround = "________________________________________________________________________________________________________________________";
 
                 // Make random number from 0-10, if number is < 5, spawn cactus on current run-through
-                Random rndNum = new Random();
-                int nextRndNum = rndNum.Next(0, 10);
-                if (nextRndNum < 10) {
+                if (rndNum.Next(0, 10) < 7) {
                     cactusOnGround = true;
                 }
 
@@ -69,15 +73,9 @@ namespace Gruppe_5 {
                     timeRunning = "Seconds running: " + totalSeconds;
                     Console.WriteLine(timeRunning.PadLeft(120));
                     for (int j = 0; j < loft2dino; j += 1) { Console.WriteLine(" "); } // Move ground down
-                    if (dinoRunCounter >= 5) {
-                        Console.WriteLine(dinoRun1);
-                        if (dinoRunCounter >= 10) {
-                            dinoRunCounter = 0;
-                        }
-                    } else {
-                        Console.WriteLine(dinoRun2);
-                    }
-                    dinoRunCounter += 1;
+
+                    dinoRunCounter = MyFunctions.PrintAnimatedDino(dinoRunCounter); // Dino is running
+
                     for (int j = 0; j < dino2ground; j += 1) { Console.WriteLine(" "); } // Move ground down
                     Console.WriteLine(movingGround); // Print ground
 
@@ -117,6 +115,7 @@ namespace Gruppe_5 {
                         }
                     } // Buttons. Expand by clicking the + at the left of this line. Remember to close after edit.
 
+                    // Collision detection
                     if (i < 20 && dino2ground < 2 && cactusOnGround == true && i > 5) {
                         goto end;
                     }
@@ -145,9 +144,39 @@ namespace Gruppe_5 {
         }
 
         public void FunktionerSkrivesHer() {
-            //Kaldes med Myfuntions.NavnetP�Funktionen i Main"
+            //Kaldes med Myfuntions.NavnetPåFunktionen i Main"
         }
 
+        public int PrintAnimatedDino(int dinoRunCounter) {
+            string dinoRun1 =
+            "                    __\n" +
+            "                   / _)\n" +
+            "         _.----._ / /\n" +
+            "        /        _ /\n" +
+            "    _ _/ (  | (  |\n" +
+            "  / __.-'/_/-- |_|";
+
+            string dinoRun2 =
+            "                    __\n" +
+            "                   / _)\n" +
+            "         _.----._ / /\n" +
+            "        /        _ /\n" +
+            "    _ _/ (  | (  |\n" +
+            "  / __.- '|_|--/_/";
+
+            if (dinoRunCounter >= 5) {
+                Console.WriteLine(dinoRun1);
+                if (dinoRunCounter >= 10) {
+                    return 0;
+                }
+                dinoRunCounter += 1;
+                return dinoRunCounter;
+            }
+            Console.WriteLine(dinoRun2);
+            dinoRunCounter += 1;
+            return dinoRunCounter;
+
+        }
 
 
     }
