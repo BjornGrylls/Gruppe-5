@@ -53,7 +53,12 @@ namespace Gruppe_5 {
                 movingGround = "________________________________________________________________________________________________________________________";
 
                 // Make random number from 0-10, if number is < 5, spawn cactus on current run-through
+
                 if (rndNum.Next(0, 10) < 7) {
+
+                Random rndNum = new Random();
+                int nextRndNum = rndNum.Next(0, 10);
+                if (nextRndNum < 5) {
                     cactusOnGround = true;
                 }
                 
@@ -185,6 +190,12 @@ namespace Gruppe_5 {
             "        /        _ /\n" +
             "    _ _/ (  | (  |\n" +
             "  / __.-''|_|-/_/";
+
+                string dinoDead1 =
+                "         _.----.___\n" +
+                "        /        _  \\ \n" +
+                "    _ _/ (  | (  | \\ \\ \n" +
+                "  / __.-''/_/-/_/   \\ _x)";
 
             if (dinoRunCounter >= 5) {
                 Console.WriteLine(dinoRun1);
