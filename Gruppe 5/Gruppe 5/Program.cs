@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-
 namespace Gruppe_5 {
     class Program {
         static void Main(string[] args) {
@@ -181,3 +180,11 @@ namespace Gruppe_5 {
 
     }
 }
+                                            /* "  ___ \n" +
+                                              "   | |\n" +
+                                              "   | | \n" +
+                                              "|| | | ||\n" +
+                                              "||_| |_||\n" +
+                                              "   | |\n" +
+                                              "   | |\n"; */
+
