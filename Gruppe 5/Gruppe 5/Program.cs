@@ -78,7 +78,7 @@ namespace Gruppe_5 {
 
                     for (int j = 0; j < dino2ground; j += 1) { Console.WriteLine(" "); } // Move ground down
                     Console.WriteLine(movingGround); // Print ground
-
+                    
                     { // Click the - at the left of this line if you are done editing
 
                         while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W)) {
@@ -110,7 +110,7 @@ namespace Gruppe_5 {
                             dinoTop = false;
                         }
 
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)) {
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)) {     
                             goto end;
                         }
                     } // Buttons. Expand by clicking the + at the left of this line. Remember to close after edit.
@@ -146,6 +146,22 @@ namespace Gruppe_5 {
         end:;
             Console.Clear();
             Console.WriteLine("Du fik {0} point", passedCacti);
+            Console.Beep(300, 500);
+            Thread.Sleep(50);
+            Console.Beep(300, 500);
+            Thread.Sleep(50);
+            Console.Beep(300, 500);
+            Thread.Sleep(50);
+            Console.Beep(250, 500);
+            Thread.Sleep(50);
+            Console.Beep(350, 250);
+            Console.Beep(300, 500);
+            Thread.Sleep(50);
+            Console.Beep(250, 500);
+            Thread.Sleep(50);
+            Console.Beep(350, 250);
+            Console.Beep(300, 500);
+            Thread.Sleep(50);
 
         }
 
