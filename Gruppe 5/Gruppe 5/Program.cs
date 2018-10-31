@@ -59,7 +59,7 @@ namespace Gruppe_5 {
                     if (cactusOnGround) {
                         char[] movingGroundArray = movingGround.ToCharArray();
                         movingGroundArray[i] = '1';
-                        if (i < movingGround.Length - 1) { movingGroundArray[i + 7] = '_'; }
+                        if (i < movingGround.Length - 1) { movingGroundArray[i + 1] = '_'; }
                         movingGround = new string(movingGroundArray);
                     }
 
