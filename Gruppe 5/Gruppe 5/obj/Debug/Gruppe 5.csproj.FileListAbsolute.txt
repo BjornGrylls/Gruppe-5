@@ -12,6 +12,7 @@ C:\Users\admin.DESKTOP-J123LG6\Documents\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\ob
 C:\Users\admin.DESKTOP-J123LG6\Documents\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.csproj.CoreCompileInputs.cache
 C:\Users\admin.DESKTOP-J123LG6\Documents\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.exe
 C:\Users\admin.DESKTOP-J123LG6\Documents\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.pdb
+<<<<<<< Updated upstream
 C:\Users\Marcus\Documents\Gruppe-5\Gruppe 5\Gruppe 5\bin\Debug\Gruppe 5.exe.config
 C:\Users\Marcus\Documents\Gruppe-5\Gruppe 5\Gruppe 5\bin\Debug\Gruppe 5.exe
 C:\Users\Marcus\Documents\Gruppe-5\Gruppe 5\Gruppe 5\bin\Debug\Gruppe 5.pdb
@@ -19,3 +20,12 @@ C:\Users\Marcus\Documents\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.csprojAs
 C:\Users\Marcus\Documents\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.csproj.CoreCompileInputs.cache
 C:\Users\Marcus\Documents\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.exe
 C:\Users\Marcus\Documents\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.pdb
+=======
+C:\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\bin\Debug\Gruppe 5.exe.config
+C:\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\bin\Debug\Gruppe 5.exe
+C:\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\bin\Debug\Gruppe 5.pdb
+C:\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.csprojAssemblyReference.cache
+C:\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.csproj.CoreCompileInputs.cache
+C:\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.exe
+C:\GitKraken\Gruppe-5\Gruppe 5\Gruppe 5\obj\Debug\Gruppe 5.pdb
+>>>>>>> Stashed changes
