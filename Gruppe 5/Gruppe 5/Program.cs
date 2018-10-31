@@ -18,13 +18,25 @@ namespace Gruppe_5 {
             int gameSpeed = 50;
             int gameSpeedCounter = 0;
             bool cactusOnGround = false;
+            DateTime timeStarted = DateTime.Now;
 
-            string dino = "                    __\n" +
-                          "                   / _)\n" +
-                          "         _.----._ / /\n" +
-                          "        /        _ /\n" +
-                          "    _ _/ (  | (  |\n" +
-                          "  / __.- '|_|--|_|";
+            string dinoRun1 =
+            "                    __\n" +
+            "                   / _)\n" +
+            "         _.----._ / /\n" +
+            "        /        _ /\n" +
+            "    _ _/ (  | (  |\n" +
+            "  / __.-'/_/-- |_|";
+
+            string dinoRun2 =
+            "                    __\n" +
+            "                   / _)\n" +
+            "         _.----._ / /\n" +
+            "        /        _ /\n" +
+            "    _ _/ (  | (  |\n" +
+            "  / __.- '|_|--/_/";
+            int dinoRunCounter = 0;
+
             string movingGround = "________________________________________________________________________________________________________________________";
             bool dinoTop = false;
             DateTime timeSinceStarted = DateTime.Now;
@@ -57,8 +69,16 @@ namespace Gruppe_5 {
                     timeRunning = "Seconds running: " + totalSeconds;
                     Console.WriteLine(timeRunning.PadLeft(120));
                     for (int j = 0; j < loft2dino; j += 1) { Console.WriteLine(" "); } // Move ground down
-
-                    Console.WriteLine(dino);
+                    if (dinoRunCounter >= 5) {
+                        Console.WriteLine(dinoRun1);
+                        if (dinoRunCounter >= 10) {
+                            dinoRunCounter = 0;
+                        }
+                    } else {
+                        Console.WriteLine(dinoRun2);
+                    }
+                    dinoRunCounter += 1;
+                    for (int j = 0; j < dino2ground; j += 1) { Console.WriteLine(" "); } // Move ground down
                     Console.WriteLine(movingGround); // Print ground
 
                     { // Click the - at the left of this line if you are done editing
@@ -118,30 +138,17 @@ namespace Gruppe_5 {
 
             }
 
-            end:;
+        end:;
             Console.Clear();
             Console.WriteLine("Du fik {0} point", totalSeconds);
 
         }
 
-
-
         public void FunktionerSkrivesHer() {
             //Kaldes med Myfuntions.NavnetP�Funktionen i Main"
         }
 
-        
-        
+
+
     }
 }
-            DateTime timeStarted = DateTime.Now;
-                    DateTime timeSinceStarted = DateTime.Now;
-                    double totalminutes = (timeSinceStarted - timeStarted).TotalSeconds;
-                    string timeRunning = "Seconds running: " + totalminutes;
-                    Console.WriteLine(timeRunning.PadLeft(120));
-                    for (int j = 0; j < loft2dino; j += 1) { Console.WriteLine(" "); } // Move ground down
-
-                    Console.WriteLine(dino);
-                    for (int j = 0; j < dino2ground; j += 1) { Console.WriteLine(" "); } // Move ground down
-        end:;
-
