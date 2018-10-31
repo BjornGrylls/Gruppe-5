@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace Gruppe_5 {
-    class Program {
-        static void Main(string[] args) {
+namespace Gruppe_5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
 
             // Initialize things
             Program MyFunctions = new Program();
@@ -20,14 +23,14 @@ namespace Gruppe_5 {
             bool cactusOnGround = false;
             Random rndNum = new Random();
             string movingGround = "________________________________________________________________________________________________________________________";
-            string cactus = 
+            string cactus =
             "   ___ \n" +
             "   | |\n" +
             "   | | \n" +
             "|| | | ||\n" +
             "||_| |_||\n" +
             "   | |\n" +
-            "   | |\n"; 
+            "   | |\n";
 
 
             // Initialize animation of dino
@@ -48,25 +51,24 @@ namespace Gruppe_5 {
             int passedCacti = 0;
 
 
-            while (isRunning == true) { // While running == true
+            while (isRunning == true)
+            { // While running == true
                 cactusOnGround = false;
                 movingGround = "________________________________________________________________________________________________________________________";
 
                 // Make random number from 0-10, if number is < 5, spawn cactus on current run-through
-
-                if (rndNum.Next(0, 10) < 7) {
-
-                Random rndNum = new Random();
-                int nextRndNum = rndNum.Next(0, 10);
-                if (nextRndNum < 5) {
+                if (rndNum.Next(0, 10) < 7)
+                {
                     cactusOnGround = true;
                 }
-                
 
-                for (int i = movingGround.Length - 1; i >= 0; i -= 1) {
+
+                for (int i = movingGround.Length - 1; i >= 0; i -= 1)
+                {
 
                     //Spawns a cactus ('1') for current run-through of movingGround
-                    if (cactusOnGround) {
+                    if (cactusOnGround)
+                    {
                         char[] movingGroundArray = movingGround.ToCharArray();
                         movingGroundArray[i] = '1';
                         if (i < movingGround.Length - 1) { movingGroundArray[i + 1] = '_'; }
@@ -83,25 +85,32 @@ namespace Gruppe_5 {
 
                     for (int j = 0; j < dino2ground; j += 1) { Console.WriteLine(" "); } // Move ground down
                     Console.WriteLine(movingGround); // Print ground
-                    
+
                     { // Click the - at the left of this line if you are done editing
 
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W)) {
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W))
+                        {
                             Console.WriteLine("                                    I");
                         }
 
-                        if (!dinoTop) {
-                            while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar)) { // While spacebar is pressed/held down. Rest of program runs while this runs
+                        if (!dinoTop)
+                        {
+                            while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar))
+                            { // While spacebar is pressed/held down. Rest of program runs while this runs
                                 dinoCounter += 1;
                             }
 
-                            if (dinoCounter >= 2) {
+                            if (dinoCounter >= 2)
+                            {
                                 dino2ground += 1;
                                 loft2dino -= 1;
                             }
 
-                        } else {
-                            if (dinoCounter >= 5) {
+                        }
+                        else
+                        {
+                            if (dinoCounter >= 5)
+                            {
                                 dino2ground -= 1;
                                 loft2dino += 1;
                                 dinoCounter = 0;
@@ -109,19 +118,24 @@ namespace Gruppe_5 {
                             dinoCounter += 1;
                         }
 
-                        if (dino2ground >= 5) {
+                        if (dino2ground >= 5)
+                        {
                             dinoTop = true;
-                        } else if (dino2ground <= 0) {
+                        }
+                        else if (dino2ground <= 0)
+                        {
                             dinoTop = false;
                         }
 
-                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)) {     
+                        while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape))
+                        {
                             goto end;
                         }
                     } // Buttons. Expand by clicking the + at the left of this line. Remember to close after edit.
 
                     // Collision detection
-                    if (i < 20 && dino2ground < 2 && cactusOnGround == true && i > 5) {
+                    if (i < 20 && dino2ground < 2 && cactusOnGround == true && i > 5)
+                    {
                         goto end;
                     }
 
@@ -148,8 +162,17 @@ namespace Gruppe_5 {
 
             }
 
-        end:;
+            end:;
             Console.Clear();
+            for (int j = 0; j < loft2dino; j += 1) { Console.WriteLine(" "); } // Move ground down
+            
+            string dinoDead1 =
+                "         _.----.___\n" +
+                "        /        _  \\ \n" +
+                "    _ _/ (  | (  | \\ \\ \n" +
+                "  / __.-''/_/-/_/   \\ _x)";
+            Console.WriteLine(dinoDead1);
+            Console.WriteLine(movingGround);
             Console.WriteLine("Du fik {0} point", passedCacti);
             Console.Beep(300, 500);
             Thread.Sleep(50);
@@ -170,11 +193,13 @@ namespace Gruppe_5 {
 
         }
 
-        public void FunktionerSkrivesHer() {
+        public void FunktionerSkrivesHer()
+        {
             //Kaldes med Myfuntions.NavnetPåFunktionen i Main"
         }
 
-        public int PrintAnimatedDino(int dinoRunCounter) {
+        public int PrintAnimatedDino(int dinoRunCounter)
+        {
             string dinoRun1 =
             "                    __\n" +
             "                   / _)\n" +
@@ -191,15 +216,13 @@ namespace Gruppe_5 {
             "    _ _/ (  | (  |\n" +
             "  / __.-''|_|-/_/";
 
-                string dinoDead1 =
-                "         _.----.___\n" +
-                "        /        _  \\ \n" +
-                "    _ _/ (  | (  | \\ \\ \n" +
-                "  / __.-''/_/-/_/   \\ _x)";
+            
 
-            if (dinoRunCounter >= 5) {
+            if (dinoRunCounter >= 5)
+            {
                 Console.WriteLine(dinoRun1);
-                if (dinoRunCounter >= 10) {
+                if (dinoRunCounter >= 10)
+                {
                     return 0;
                 }
                 dinoRunCounter += 1;
