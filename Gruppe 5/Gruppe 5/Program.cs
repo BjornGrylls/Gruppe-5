@@ -19,22 +19,37 @@ namespace Gruppe_5 {
             bool cactusOnGround = false;
             DateTime timeStarted = DateTime.Now;
 
-            string dino = "                    __\n" +
-                          "                   / _)\n" +
-                          "         _.----._ / /\n" +
-                          "        /        _ /\n" +
-                          "    _ _/ (  | (  |\n" +
-                          "  / __.- '|_|--|_|";
-            bool dinoTop = false;
+            string dinoRun1 =
+            "                    __\n" +
+            "                   / _)\n" +
+            "         _.----._ / /\n" +
+            "        /        _ /\n" +
+            "    _ _/ (  | (  |\n" +
+            "  / __.-'/_/-- |_|";
 
-            while (isRunning == true) { // isRunning
+            string dinoRun2 =
+            "                    __\n" +
+            "                   / _)\n" +
+            "         _.----._ / /\n" +
+            "        /        _ /\n" +
+            "    _ _/ (  | (  |\n" +
+            "  / __.- '|_|--/_/";
+            int dinoRunCounter = 0;
+
+            string movingGround = "________________________________________________________________________________________________________________________";
+            bool dinoTop = false;
+            DateTime timeSinceStarted = DateTime.Now;
+            double totalSeconds = (timeSinceStarted - timeStarted).TotalSeconds;
+            string timeRunning = "Seconds running: " + totalSeconds;
+
+            while (isRunning == true) { // While running == true
                 cactusOnGround = false;
-                string movingGround = "________________________________________________________________________________________________________________________";
+                movingGround = "________________________________________________________________________________________________________________________";
 
                 // Make random number from 0-10, if number is < 5, spawn cactus on current run-through
                 Random rndNum = new Random();
                 int nextRndNum = rndNum.Next(0, 10);
-                if (nextRndNum < 5) {
+                if (nextRndNum < 10) {
                     cactusOnGround = true;
                 }
 
@@ -48,36 +63,44 @@ namespace Gruppe_5 {
                         movingGround = new string(movingGroundArray);
                     }
 
-                    DateTime timeSinceStarted = DateTime.Now;
-                    double totalminutes = (timeSinceStarted - timeStarted).TotalSeconds;
-                    string timeRunning = "Seconds running: " + totalminutes;
+                    timeSinceStarted = DateTime.Now;
+                    totalSeconds = Math.Round((timeSinceStarted - timeStarted).TotalSeconds);
+                    timeRunning = "Seconds running: " + totalSeconds;
                     Console.WriteLine(timeRunning.PadLeft(120));
                     for (int j = 0; j < loft2dino; j += 1) { Console.WriteLine(" "); } // Move ground down
-
-                    Console.WriteLine(dino);
+                    if (dinoRunCounter >= 5) {
+                        Console.WriteLine(dinoRun1);
+                        if (dinoRunCounter >= 10) {
+                            dinoRunCounter = 0;
+                        }
+                    } else {
+                        Console.WriteLine(dinoRun2);
+                    }
+                    dinoRunCounter += 1;
                     for (int j = 0; j < dino2ground; j += 1) { Console.WriteLine(" "); } // Move ground down
                     Console.WriteLine(movingGround); // Print ground
 
                     { // Click the - at the left of this line if you are done editing
 
                         while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.W)) {
-                            Console.Write("W");
+                            Console.WriteLine("                                    I");
                         }
 
                         if (!dinoTop) {
                             while ((Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar)) { // While spacebar is pressed/held down. Rest of program runs while this runs
-                                if (dinoCounter >= 10) {
-                                    dino2ground += 1;
-                                    loft2dino -= 1;
-                                }
+                                dinoCounter += 1;
                             }
-                            dinoCounter += 1;
+
+                            if (dinoCounter >= 2) {
+                                dino2ground += 1;
+                                loft2dino -= 1;
+                            }
 
                         } else {
                             if (dinoCounter >= 5) {
                                 dino2ground -= 1;
                                 loft2dino += 1;
-                                dinoCounter = 2;
+                                dinoCounter = 0;
                             }
                             dinoCounter += 1;
                         }
@@ -93,6 +116,9 @@ namespace Gruppe_5 {
                         }
                     } // Buttons. Expand by clicking the + at the left of this line. Remember to close after edit.
 
+                    if (i < 20 && dino2ground < 2 && cactusOnGround == true && i > 5) {
+                        goto end;
+                    }
 
                     Thread.Sleep(gameSpeed);
                     Console.Clear();
@@ -107,15 +133,13 @@ namespace Gruppe_5 {
                     }
                     gameSpeedCounter += 1;
                     */
-
                 }
-                movingGround = "________________________________________________________________________________________________________________________";
 
             }
 
         end:;
             Console.Clear();
-            Console.WriteLine("Du vandt");
+            Console.WriteLine("Du fik {0} point", totalSeconds);
 
         }
 
