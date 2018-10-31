@@ -45,6 +45,7 @@ namespace Gruppe_5 {
             DateTime timeSinceStarted = DateTime.Now;
             double totalSeconds = (timeSinceStarted - timeStarted).TotalSeconds;
             string timeRunning = "Seconds running: " + totalSeconds;
+            int passedCacti = 0;
 
 
             while (isRunning == true) { // While running == true
@@ -55,6 +56,7 @@ namespace Gruppe_5 {
                 if (rndNum.Next(0, 10) < 7) {
                     cactusOnGround = true;
                 }
+                
 
                 for (int i = movingGround.Length - 1; i >= 0; i -= 1) {
 
@@ -68,7 +70,7 @@ namespace Gruppe_5 {
 
                     timeSinceStarted = DateTime.Now;
                     totalSeconds = Math.Round((timeSinceStarted - timeStarted).TotalSeconds);
-                    timeRunning = "Seconds running: " + totalSeconds;
+                    timeRunning = "Seconds running: " + totalSeconds + " | Cacti passed:" + passedCacti;
                     Console.WriteLine(timeRunning.PadLeft(120));
                     for (int j = 0; j < loft2dino; j += 1) { Console.WriteLine(" "); } // Move ground down
 
@@ -118,6 +120,12 @@ namespace Gruppe_5 {
                         goto end;
                     }
 
+                    // If cactus was passed, add point
+                    if (cactusOnGround && i == 0)
+                    {
+                        passedCacti += 1;
+                    }
+
                     Thread.Sleep(gameSpeed);
                     Console.Clear();
 
@@ -137,7 +145,7 @@ namespace Gruppe_5 {
 
         end:;
             Console.Clear();
-            Console.WriteLine("Du fik {0} point", totalSeconds);
+            Console.WriteLine("Du fik {0} point", passedCacti);
 
         }
 
