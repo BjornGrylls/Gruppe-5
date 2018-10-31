@@ -18,6 +18,7 @@ namespace Gruppe_5 {
             int gameSpeed = 50;
             int gameSpeedCounter = 0;
             bool cactusOnGround = false;
+            
 
             string dino = "                    __\n" +
                           "                   / _)\n" +
@@ -49,7 +50,7 @@ namespace Gruppe_5 {
                     }
 
                     for (int j = 0; j < heightOfPLayArea; j += 1) { Console.WriteLine(" "); } // Move ground down
-                    string dino = "                    __\n" +
+                     dino = "                    __\n" +
                             "                   / _)\n" +
                             "         _.----._ / /\n" +
                             "        /        _ /\n" +
@@ -114,10 +115,47 @@ namespace Gruppe_5 {
 
             }
 
+
+
             end:;
             Console.Clear();
             Console.WriteLine("Du vandt");
 
+        }
+        public void dinoRunning()
+        {
+            // Dinosaur / Player - Running
+            string dinoRun =
+            "                    __\n" +
+            "                   / _)\n" +
+            "         _.----._ / /\n" +
+            "        /        _ /\n" +
+            "    _ _/ (  | (  |\n" +
+            "  / __.-'/_/-- |_|";
+
+            string dinoRun2 =
+            "                    __\n" +
+            "                   / _)\n" +
+            "         _.----._ / /\n" +
+            "        /        _ /\n" +
+            "    _ _/ (  | (  |\n" +
+            "  / __.- '|_|--/_/";
+
+            Console.WriteLine(dinoRun); // Print Running Dinosaur
+            Console.WriteLine(dinoRun2); // Print Running Dinosaur
+        }
+
+        public void dinoJumping()
+        {
+            string dinoJump =
+            "                    __\n" +
+            "                   / _)\n" +
+            "         _.----._ / /\n" +
+            "        /        _ /\n" +
+            "    _ _/ (  | (  |\n" +
+            "  / __.- '|_|--|_|";
+
+            Console.WriteLine(dinoJump);
         }
 
 
